@@ -4,11 +4,11 @@ const bodyParser = require('body-parser')
 
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
-const uri = "mongodb://patrickisidoro:nuzor1539@ds133279.mlab.com:33279/crud-nodejs";
+const uri = "mongodb://localhost:27017/crud-nodejs";
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-MongoClient.connect(uri, (err, client) => {
+MongoClient.connect(uri, { useNewUrlParser: true } , (err, client) => {
   if (err) return console.log(err)
   db = client.db('crud-nodejs') // coloque o nome do seu DB
 
